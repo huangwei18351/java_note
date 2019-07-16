@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		$("#kw").val("请输入关键词").addClass("inputclass").blur(function(){
+				if($(this).val()==""){
+					$("#kw").val("请输入关键词").addClass("inputclass");
+				}
+			}).focus(function(){
+				if($(this).val()=="请输入关键词"){
+					$("#kw").val("").removeClass("inputclass");
+				}
+			});
+		});
+</script>
+
+<style type="text/css">
+	.inputclass{
+		color:gray;
+	}
+</style>
+</head>
+
+<body>
+<input type="text" id="kw"  />
+</body>
+</html>

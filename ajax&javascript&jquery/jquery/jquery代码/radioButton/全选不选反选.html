@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function(){
+		var list = $("#playList :checkbox")
+		$("#selAll").click(function (){
+			$("#playList :checkbox").attr("checked",true);//#playList :checkbox 空格不能省
+			});
+			
+		$("#unselAll").click(function (){
+			$("#playList :checkbox").attr("checked",false);
+			});
+			
+		$("#reverse").click(function (){
+			//$("#playList :checkbox").attr("checked",!$("#playList :checkbox").attr("checked"));
+			//  $("#playList :checkbox").attr("checked")只取第一次的状态 上面方法不可行
+			$("#playList :checkbox").each(function(){
+				 alert(!$(this).attr("checked"));
+				$(this).attr("checked", $(this).attr("checked"));
+				});
+			});
+		});
+</script>
+</head>
+
+<body>
+<div id="playList">
+	<input type="checkbox" name="1" />歌曲1<br />
+	<input type="checkbox" name="1"  />歌曲2<br />
+    <input type="checkbox" name="1"  />歌曲3<br />
+    <input type="checkbox" name="1"  />歌曲4<br />
+    <input type="checkbox" name="1"  />歌曲5<br />
+</div>   
+    <input type="button" value="全选" id="selAll"  />
+    <input type="button" value="全不选" id="unselAll"  />
+    <input type="button" value="反选" id="reverse"  />
+
+</body>
+</html>

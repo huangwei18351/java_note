@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(function (){
+		$("#t1 th").css("fontSize","20");
+		$("#t1 tr:last").css("color","red");
+		//gt大于1的，lt小于3，没包含边界值，加在一起之后，就变成了tr:gt(0)，
+		//选出来的就是大于零的tr，即从tom开始，设为tr1，在选出tr1:lt(3)，里面小于3的,重新编号
+		$("#t1 tr:gt(0):lt(3)").css("fontSize","15");
+		$("#t1 tr:gt(0):lt(3)").css("color","blue");
+		$("#t1 tr:gt(0):even").css("background","green");
+		});
+</script>
+</head>
+
+<body>
+<table id="t1" border="1px solid" cellspacing="0px">
+	<tr>
+        <th>姓名</th>
+        <th>成绩</th>
+    </tr>
+    <tr>
+    	<td>tom</td>
+        <td>98</td>
+    </tr>
+    <tr>
+    	<td>jim</td>
+        <td>97</td>
+    </tr>
+    <tr>
+    	<td>hem</td>
+        <td>96</td>
+    </tr>
+    <tr>
+    	<td>ham</td>
+        <td>95</td>
+    </tr>
+    <tr>
+    	<td>平均分</td>
+        <td>90</td>
+    </tr>
+</table>
+</body>
+</html>

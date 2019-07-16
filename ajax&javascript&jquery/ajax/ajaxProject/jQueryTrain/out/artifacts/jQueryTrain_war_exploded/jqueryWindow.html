@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery实例1：浮动窗口</title>
+    <link type="text/css" rel="stylesheet" href="css/win.css" />
+    <script type="text/javascript" src="jslib/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="jslib/jquerywin.js"></script>
+</head>
+<body>
+    <a onclick="showWin()" href="javascript:void(0)">显示浮动窗口</a>
+    <!--如何表示页面中的一个弹出窗口?可以用div表示-->
+    <!--目前怎么看都不是一个窗口，因此需要用css来改变一下这个div的样子-->
+    <div id="win">
+        <div id="title"> 我是一个标题栏<span id="close" onclick="hideWin()">X</span></div>
+        <div id="content"> 我是内容</div>
+    </div>
+</body>
+</html>

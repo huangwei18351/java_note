@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		$("#btn").click(function(){
+			var title = $("#title").val();
+			var area = $("#area").val();
+			var tr = $("<tr><td>" + title + "</td><td>" + area + "</td></tr>");
+			$("#tab").append(tr);
+			});
+		});
+</script>
+</head>
+
+<body>
+<p>第一个帖子，我的第一个帖子</p>
+<table id="tab" border="1px solid" cellspacing="0px">
+	<tr><td>匿名</td><td>沙发</td></tr>
+</table>
+<input type="text" id="title"  /><br />
+<textarea id="area"></textarea><br />
+<input type="button" value="发表" id="btn"  /><br />
+&nbsp;
+</body>
+</html>

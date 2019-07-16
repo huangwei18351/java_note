@@ -1,0 +1,7 @@
+/*如何让所有的li都不显示小圆点，可以使用css的标签选择器*/
+
+li{
+    list-style: none;/*是li不显示小圆点*/
+    margin-left: 18px;/*让子菜单右移一段距离*/
+    display: none;
+}

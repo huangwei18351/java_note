@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+//给div添加onclick事件，返回下一个节点的text
+	/*$(function (){
+		$("div").click(function (){
+				alert($(this).next().text());
+			});
+		});
+		*/
+		//如果div下面一个节点不是div，就提示空，没取到
+	/*$(function (){
+		$("div").click(function (){
+				alert($(this).next("div").text());
+			});
+		});*/
+		
+		//点击div如果下一个是p节点，就提示p节点的值，如果不是就提示空
+	/*$(function (){
+		$("div").click(function (){
+				alert($(this).next("p").text());
+			});
+		});*/
+		
+		//提示点击的那个div下面的所有指定节点的值，如果不指定就是所有的节点的值
+	/*$(function (){
+		$("div").click(function (){
+				alert($(this).nextAll("p").text());
+			});
+		});*/
+		
+	//点击某个div，让该div之后的所有的同辈的div都加上红色背景--复杂做法
+	/*$(function (){
+		$("div").click(function (){
+				$.each($(this).nextAll("div"),function(){
+						$(this).css("background","red");
+					});
+			});
+		});*/
+		
+	//简便做法
+	/*$(function (){
+		$("div").click(function (){
+				$(this).nextAll("div").css("background","red");
+			});
+		});*/
+		
+	//	选中的变红，其他兄弟节点变白
+	/*$(function (){
+		$("div").click(function (){
+				$(this).css("background","red");
+				$(this).siblings("div").css("background","white");
+			});
+		});*/
+	//	#ratings td表示表格下面的td，如果用#ratings > td表示table下面直接有td
+	$(function (){
+		$("#ratings td").html("<img src='../images/star.png' />")
+		.mouseover(function (){
+				$(this).html("<img src='../images/star1.png' />");
+				$(this).siblings().html("<img src='../images/star1.png' />");
+				$(this).nextAll().html("<img src='../images/star.png' />");
+			});
+		});
+</script>
+</head>
+
+<body>
+<div>aa</div>
+<div>bb</div>
+<p>ee</p>
+<p>ff</p>
+<div>cc</div>
+<div>dd</div>
+
+<table id="ratings">
+    <tr>
+    	<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>

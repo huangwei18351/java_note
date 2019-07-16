@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		/*非hover方法
+		
+		$("p").mouseover(function(){
+			$(this).text("客观来了");
+			}).mouseleave(function(){
+				$(this).text("大爷慢走");
+				});
+		});
+		
+		*/
+		//hover方法
+		$("p").hover(function(){
+			$(this).text("客观来了");
+			},function(){
+				$(this).text("大爷慢走");
+				});
+		});
+		
+</script>
+</head>
+
+<body>
+<p>你好</p>
+</body>
+</html>

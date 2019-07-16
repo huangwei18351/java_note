@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		$("#p1").click(function(){
+			alert("p1被点了");
+			});
+		
+		$("#td1").click(function(){
+			alert("td1被点了");
+			e.stopPropagation();//终止冒泡
+			});
+		
+		$("#tr1").click(function(){
+			alert("tr1被点了");
+			});
+		
+		$("#t1").click(function(){
+			alert("t1被点了");
+			});
+		$("#aaa").click(function(e){
+			alert("今天link不接客");
+			e.preventDefault();
+			});
+		$(":submit").click(function(e){
+			if($("#name").val().length <= 0){
+				alert("用户民不能为空");
+				e.preventDefault();
+			}
+			});
+	});
+		
+</script>
+</head>
+
+<body>
+<table onclick="alert('table')">
+	<tr onclick="alert('tr')">
+    	<td onclick="alert('td')">
+        	<p onclick="alert('p')">dddddddd</p>
+        </td>
+    </tr>
+</table>
+
+<table id="t1">
+	<tr id="tr1">
+    	<td id="td1">
+        	<p id="p1">
+            	你好
+            </p>
+        </td>
+    </tr>
+</table>
+<a href="hover.html" id="aaa">link</a>
+
+<form action="hover.html" id="f1">
+	<input id="name" type="text" />
+    <input type="submit" value="提交" />
+</form>
+</body>
+</html>

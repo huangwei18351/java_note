@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	//10秒等待
+	var leftSecond = 10;
+	var intervalId;
+ 	$(function (){
+		$("#btnReg").attr("disabled", true); //用attr来设置，取的=jquery没有封装的属性
+		intervalId = setInterval("CountDown()",1000);//设置计时器，是的每隔1秒，执行countDown方法
+		});
+	function CountDown(){
+		if(leftSecond <= 0){
+			$("#btnReg").val("同意");
+			$("#btnReg").attr("disabled", false);
+			clearInterval(intervalId);
+			return;
+		}
+		leftSecond--;
+		$("#btnReg").val("请等待" + leftSecond + "秒");
+	}
+</script>
+</head>
+
+<body>
+<textarea>fadkajflasdfajkldsjjfjas</textarea>
+<input type="button" id="btnReg"  value="请等待10秒"/>
+</body>
+</html>

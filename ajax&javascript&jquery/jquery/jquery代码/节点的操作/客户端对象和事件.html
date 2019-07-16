@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	//点击的div下面的ul变色
+	$(function (){
+		$("#d1").click(function(){
+			//$("ul",$(this))表示相对于this下面的ul
+				$("ul",$(this)).css("background","red");
+			});
+		});
+		
+	$(function (){
+		$("#t1 tr").click(function(){
+			//$("ul",$(this))表示相对于this下面的ul
+				$("td",$(this)).css("background","red");
+			});
+		});
+</script>
+</head>
+
+<body>
+<div>
+	<div id="d1">
+    	<ul>
+        	<li>fffffffffffffffffff</li>
+            <li>eeeeeeeeeeeeeeeeeee</li>
+            <li>ffffffffddddddddddd</li>
+        </ul>
+    </div>
+    <div id="d2">
+    	<ul>
+        	<li>fffffffffffffffffff</li>
+            <li>eeeeeeeeeeeeeeeeeee</li>
+            <li>ffffffffddddddddddd</li>
+        </ul>
+    </div>
+</div>
+<table id="t1" border="1px solid" cellspacing="0px">
+	<tr>
+        <th>姓名</th>
+        <th>成绩</th>
+    </tr>
+    <tr>
+    	<td>tom</td>
+        <td>98</td>
+    </tr>
+    <tr>
+    	<td>jim</td>
+        <td>97</td>
+    </tr>
+    <tr>
+    	<td>hem</td>
+        <td>96</td>
+    </tr>
+    <tr>
+    	<td>ham</td>
+        <td>95</td>
+    </tr>
+    <tr>
+    	<td>平均分</td>
+        <td>90</td>
+    </tr>
+</table>
+</body>
+</html>

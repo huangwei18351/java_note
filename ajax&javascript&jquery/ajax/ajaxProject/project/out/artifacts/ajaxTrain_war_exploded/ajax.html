@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户名校验</title>
+    <script type="text/javascript" src="jslib/jquery-3.2.1.js" ></script>
+    <script type="text/javascript" src="jslib/verify.js" ></script>
+</head>
+<body>
+    <!--基于一些好习惯，首先标签名字一定要小写，其次标签必须关闭，第三，属性名必须小写，第四，属性名必须写在引号里面-->
+    请输入用户名<br />
+    <!--ajax方式下不需要使用表单来进行数据提交，因此不用写表单标签-->
+    <!--ajax方式不需要name属性，需要一个id属性-->
+    <input type="text" id="username"/>
+    <input type="button" value="校验" onclick="verify()"/>
+    <!--这个div用于存放服务器端返回的信息，开始为空-->
+    <!--id属性定义是为了利用dom方式找到某一个节点，进行操作-->
+    <div id="result"></div>
+    <!--<div>sdfdsf</div>
+    <div>sdfdsf</div>
+    <span>sdfafadaffadsafdsafsdf</span>
+    <span>sdfafadaffadsafdsafsdf</span>-->
+    <!--div和span的直观差异，div中的内容占据一行，span的内容和前后其他内容相处良好，可以接在后面-->
+</body>
+</html>

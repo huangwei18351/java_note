@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	//动态添加难点
+	$(function (){
+		var link = $("<a href = 'http://www.baidu.com' id='link1'>百度</a>");//注意单引号和双引号的交替使用
+		//$("#link1").text("谷歌");这样做也是不行的，因为link目前只是一个节点，还没有加到页面中，无法获取
+		$("body").append(link);
+	});
+		
+</script>
+</head>
+
+<body>
+<input type="button" value="btn1" id="btn1"  />
+<input type="button" value="btn2" id="btn2"  />
+</body>
+</html>
