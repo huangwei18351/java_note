@@ -1,0 +1,4 @@
+td{
+    border-collapse: collapse;/*让相邻的边框合并*/
+    border: 1px solid red;
+}

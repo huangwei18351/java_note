@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		//无论哪个级别，target就是指最原始的点击的那个元素节点
+		$("#p1").click(function(e){
+			alert("p");
+			alert($(this).html());
+			alert($(e.target).html());
+			});
+		$("#tr1").click(function(e){
+			alert("tr");
+			alert($(this).html());
+			alert($(e.target).html());
+			});
+	});
+		
+</script>
+</head>
+
+<body>
+<table id="t1">
+	<tr id="tr1">
+    	<td id="td1">
+        	<p id="p1">
+            	你好
+            </p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

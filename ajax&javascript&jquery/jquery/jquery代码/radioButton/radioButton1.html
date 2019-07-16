@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		$("#getValue").click(function(){
+			alert($(":radio[name=gender]:checked").val());
+			});
+		$("#setValue").click(function(){
+			$(":radio[name=gender]").val(["女"]);
+			$(":checkbox").val(["篮球","冰球"]);
+			});
+		});
+</script>
+</head>
+
+<body>
+<input type="radio" name="gender" value="男"  />男<br />
+<input type="radio" name="gender" value="女"  />女<br />
+<input type="radio" name="gender" value="保密"  />保密<br />
+
+<input type="radio" name="name" value="男"  />男<br />
+<input type="radio" name="name" value="女"  />女<br />
+<input type="radio" name="name" value="保密"  />保密<br />
+
+<input type="checkbox" value="篮球"  />篮球<br  />
+<input type="checkbox" value="足球"  />足球<br  />
+<input type="checkbox" value="羽毛球"  />羽毛球<br  />
+<input type="checkbox" value="冰球"  />冰球<br  />
+
+<input type="button" value="设置"  id="setValue"/>
+<input type="button" value="取值"  id="getValue"/>
+
+</body>
+</html>

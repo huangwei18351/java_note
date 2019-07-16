@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	$(function (){
+		$("input[value=显示选中项]").click(function (){
+				var checkedNode = $("input:checked");
+				alert(checkedNode.val());//只能取第一个值
+			});
+		});
+</script>
+</head>
+
+<body>
+<input type="checkbox" value="北京" />北京<br />
+<input type="checkbox" value="南京" />南京<br />
+<input type="checkbox" value="东京" />东京<br />
+<input type="checkbox" value="西安" />西安<br />
+<input type="checkbox" value="开封" />开封<br />
+<input type="button" value="显示选中项" />
+</body>
+</html>

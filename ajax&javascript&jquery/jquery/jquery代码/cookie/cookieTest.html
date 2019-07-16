@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" src="../../jquery.cookie.js"></script>
+<script type="text/javascript" >
+
+	//cookie的使用测试
+	$(function(){
+		//alert($.cookie("用户名"));
+		//$.cookie("用户名","tom");	
+		if($.cookie("username")){
+			$("#username").val($.cookie("username"));//读取上次记录的用户名
+		}
+		
+		if($.cookie("bgcolor")){
+			$("body").css("background-color",$.cookie("bgcolor"));//读取上次记录的背景色
+		}
+		
+		$("#btnLogin").click(function(){
+			$.cookie("username",$("#username").val());//将用户填写的用户ing保存到cookie中
+		});
+		
+		$("#tab td").click(function(){
+			$("body").css("background-color",$(this).css("background-color"));
+			$.cookie("bgcolor",$(this).css("background-color"));//记录背景色
+		});
+	});
+		
+</script>
+</head>
+
+<body>
+<input type="text" id="username"  />
+<input type="button" value="登录" id="btnLogin"  />
+<table id="tab">
+    <tr>
+        <td style="background-color:red">红色</td>
+        <td style="background-color:green">绿色</td>
+        <td style="background-color:yellow">黄色</td>
+    </tr>
+</table>
+</body>
+</html>

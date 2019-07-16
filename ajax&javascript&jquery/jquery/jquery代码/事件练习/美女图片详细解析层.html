@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	//美女图片详细解析层
+	var data={"../../images/damismall.jpg":["../../images/dami.jpg","大米","162","看照片就知道她是不是很美啊，集美貌与才华于一身的女子"]};
+	$(function(){
+		$.each(data,function(key,value){
+			var smallimg = $("<img src='"+key+"'/>");
+			smallimg.attr("bigpath",value[0]);
+			smallimg.attr("personname",value[1]);
+			smallimg.attr("personheight",value[2]);
+			smallimg.attr("personContent",value[3]);
+			smallimg.mouseover(function (e){
+				$("#detailImg").attr("src",$(this).attr("bigpath"));
+				$("#detailHeight").text("身高："+$(this).attr("personheight"));
+				$("#detailName").text("外号："+$(this).attr("personname"));
+				$("#detailContent").text("简介："+$(this).attr("personContent"));
+				//普通方法
+				$("#details").css("top",e.pageY).css("left",e.pageX).show("slow");	
+			});
+			$("body").append(smallimg);
+			$("#closedetail").click(function (){
+				$("#details").hide("slow");
+			});
+		});	
+	});
+</script>
+</head>
+
+<body>
+<div style="display:none; position:absolute;" id="details" >
+	<img id="detailImg" src=""  />
+    <p id="detailName"></p>
+    <p id="detailHeight"></p>
+    <p id="detailContent"></p>
+    <p><input type="button" value="关闭" id="closedetail"/></p>
+</div>
+</body>
+</html>

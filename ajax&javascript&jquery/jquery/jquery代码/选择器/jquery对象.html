@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	//取得div的属性
+	/*$(function(){
+		alert($("#div1").html());
+		});
+	//为div的属性赋值
+	$(function(){
+		$("#div1").html("傻逼啊");
+		//有事后迫切需要用dom对象，就可将jquery对象转成dom对象
+		var div1_2 = $("#div1")[0];
+		alert(div1_2.innerHTML);
+		});
+	*/
+	//设置css属性
+	$(function (){
+		$("#div1").css("background","red");
+		});
+	$(function (){
+		var cssBackground = $("#div1").css("background");
+		alert(cssBackground);
+		});
+	$(function (){
+		$("#txt").val("天才");
+		});
+	$(function (){
+		alert($("#txt").val());
+		});
+	
+</script>
+</head>
+
+<body>
+<div id="div1">你是猪头<font color="#FF0000">朋友</font></div>
+<input type="text" id="txt" />
+</body>
+</html>

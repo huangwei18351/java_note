@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+//加法计算器
+	$(function (){
+		$("#eq").click(function (){
+			var v1 = $("#txt1").val();//;val()是方法，不是属性，不能用$().val =""来用
+			var v2 = $("#txt2").val();
+			var v3 = parseInt(v1,10) + parseInt(v2,10);//错误说法：jquery中如何将字符串转换为int
+			$("#result").html(v3);
+			});
+		});
+</script>
+</head>
+
+<body>
+<input type="text" id="txt1"  /> &nbsp; + &nbsp;
+<input type="text" id="txt2" />
+<input type="button" value="=" id="eq"  />
+&nbsp;<span id="result" ></span>
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+var xmlDoc;
+//获取省市区的下拉框的节点
+var provinceNode;
+var cityNode;
+var countyNode;
+var addressXML;
+var provinceXMLList;
+var cityXMLList;
+//如果addressXML[0]。childNodes，
+//就会将换行变成一个节点防止读取空格或换行变成一个节点
+/* 
+另外可以在for循环里面加以判断如果是文本节点就跳过if(node.getNodeType() == Node.TEXT_NODE) {
+*/
+function loadXml(file){
+	 try{
+	        //IE
+	        xmlDoc=new ActiveXObject("Microsoft.XMLDOM");
+	    }catch(e){
+	        ////Firefox, Mozilla, Opera, etc
+	        xmlDoc=document.implementation.createDocument("","",null);
+	    }
+	
+	    try{
+	        xmlDoc.async=false;
+	        xmlDoc.load(file);//chrome没有load方法
+	    }catch(e){
+	        //针对Chrome,不过只能通过http访问,通过file协议访问会报错
+	        var xmlhttp = new window.XMLHttpRequest();  
+	        xmlhttp.open("GET",file,false);  
+	        xmlhttp.send(null);  
+	        xmlDoc = xmlhttp.responseXML.documentElement; 
+	    }
+	    return xmlDoc;
+}
+
+function init(){
+	loadXml("Area.xml");
+	provinceNode = document.getElementById("province");
+	cityNode = document.getElementById("city");
+	countyNode = document.getElementById("county");
+	addressXML = xmlDoc.getElementsByTagName("address");
+	provinceXMLList = addressXML[0].getElementsByTagName("province");
+	for( var i = 0; i < provinceXMLList.length; i++){
+		var provinceXML = provinceXMLList[i];
+		var proOptionNode = document.createElement("option");
+		proOptionNode.value = provinceXML.getAttribute("name");
+		proOptionNode.text = provinceXML.getAttribute("name");
+		provinceNode.add(proOptionNode);
+	}
+}
+	
+function findProvince(name){
+	for( var i = 0; i < provinceXMLList.length; i++){
+		var provinceXML = provinceXMLList[i];
+		if(provinceXML.getAttribute("name")==name){
+			var cityXMLList = provinceXML.getElementsByTagName("city");
+			return cityXMLList;
+		}
+	}
+}
+	
+function selectCity(){
+	cityNode.options.length=1;
+	countyNode.options.length = 1;
+	var proSelectedName = provinceNode.options[provinceNode.selectedIndex].value;
+	cityXMLList = findProvince(proSelectedName);
+	if(cityXMLList.length > 0){
+		for(var i = 0; i < cityXMLList.length; i++){
+			var cityXML = cityXMLList[i];
+			var cityOptionNode = document.createElement("option");
+			cityOptionNode.value = cityXML.getAttribute("name");	
+			cityOptionNode.text = cityXML.getAttribute("name");
+			cityNode.add(cityOptionNode);
+		}
+	}else{
+		var cityOptionNode = document.createElement("option");
+		cityOptionNode.value = "无";	
+		cityOptionNode.text = "无";
+		cityNode.add(cityOptionNode);
+	}
+} 
+
+function findCityCounty(name){
+	if(cityXMLList.length > 0){
+		for(var i = 0; i < cityXMLList.length; i++){
+			var cityXML = cityXMLList[i];
+			if(cityXML.getAttribute("name")==name){
+				var countyXMLList = cityXML.getElementsByTagName("county");
+				return countyXMLList;
+			}
+		}
+	}
+} 
+
+function selectCounty(){
+	countyNode.options.length = 1;
+	var citySelectedName = cityNode.options[cityNode.selectedIndex].value;
+	var countyXMLList = findCityCounty(citySelectedName);
+	if(countyXMLList.length > 0){
+		for(var i = 0; i < countyXMLList.length; i++){
+			var countyXML = countyXMLList[i];
+			var countyOptionNode = document.createElement("option");
+			countyOptionNode.value = countyXML.getAttribute("name");	
+			countyOptionNode.text = countyXML.getAttribute("name");
+			countyNode.add(countyOptionNode);
+		}
+	}
+}
+</script>
+</head>
+<body onload="init()">
+	<select id="province" name="province" onchange="selectCity()">
+		 <option value="" selected="true">省/直辖市</option>
+	</select>
+    <select id="city" name="city" onchange="selectCounty()">
+		<option value="" selected="true">请选择</option>
+	</select>
+    <select id="county" name="county">
+		<option value="" selected="true">请选择</option>
+	</select>
+</body>
+</html>

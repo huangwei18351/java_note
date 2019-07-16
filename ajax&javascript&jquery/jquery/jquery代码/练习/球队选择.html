@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	var tag = true;
+	//球队选择,点击球队，移动到另一边
+	$(function (){
+		$("#u1 li").css("cursor","pointer").mouseover(function (){
+		//	$(this).css("background", "red")
+		//$(this).siblings().css("background", "none");
+		$(this).css("background", "red").siblings().css("background", "none");
+		}).click(function(){
+			if(tag){
+				$(this).appendTo("#u2");
+				tag=false;
+			}else{
+				$(this).appendTo("#u1");
+				tag=true;	
+			}
+		});
+	});
+</script>
+</head>
+
+<body>
+<ul id="u1" style="float:left;width:30%">
+	<li>国足</li>
+    <li>朝鲜</li>
+    <li>日本</li>
+    <li>巴西</li>
+    <li>美国</li>
+</ul>
+
+<ul id="u2" style="float:left;width:30%">
+</ul>
+</body>
+</html>

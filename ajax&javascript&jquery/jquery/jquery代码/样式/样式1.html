@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+	.class1{
+		background:red;
+	}
+	
+	.class2{
+		font-size:50px;
+	}
+	.night{
+		background:black;
+	}
+	.heibai{
+    	 filter: grayscale(100%);
+	}
+</style>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+	function addStyle(){
+		$("#div1").addClass("class2");
+	}
+	function removeStyle(){
+		$("#div1").removeClass("class2");
+	}
+	function toggleStyle(){
+		$("#div1").toggleClass("class2");
+	}
+	//开关灯 
+	$(function(){
+		$("#kgd").click(function (){
+			$(document.body).toggleClass("night");
+			});
+		$("#hb").click(function (){
+			$(document.body).toggleClass("heibai");
+			});
+		});
+</script>
+</head>
+
+<body>
+<div class="class1" id="div1">asdfsdfasdf</div>
+<input type="button" onclick="addStyle()"  value="add"/>
+<input type="button" onclick="removeStyle()"  value="remove"/>
+<input type="button" onclick="toggleStyle()"  value="toggle"/>
+<input type="button"  value="开关灯" id="kgd"/>
+<input type="button"  value="黑白" id="hb"/>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="../../jquery-ui.css">
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//省
+		$.ajax({
+			url:"Area.xml",
+			success:function(xml){
+				$(xml).find("province").each(function(){
+					var proName = $(this).attr("name");
+					$("#province").append("<option>" + proName + "</option>")	
+				});
+			}
+		});	
+		//市
+		$("#province").change(function(){
+			$("#city option:gt(0)").remove();
+			$("#county option:gt(0)").remove();
+			var proName = $("#province").val(); 
+			$.ajax({
+				url:"Area.xml",
+				success:function(xml){
+					$(xml).find("province[name='"+proName+"'] city").each(function(){
+						var cityName = $(this).attr("name");
+						$("#city").append("<option>" + cityName + "</option>")	
+					});
+				}
+			});	
+		});
+		
+		//区
+		$("#city").change(function(){
+			$("#county option:gt(0)").remove();
+			var cityName = $("#city").val(); 
+			$.ajax({
+				url:"Area.xml",
+				success:function(xml){
+					$(xml).find("city[name='"+cityName+"'] county").each(function(){
+						var countyName = $(this).attr("name");
+						$("#county").append("<option>" + countyName + "</option>")	
+					});
+				}
+			});	
+		});
+	});
+</script>
+</head>
+<body>
+	<select id="province" name="province" onchange="selectCity()">
+		 <option value="" selected="true">省/直辖市</option>
+	</select>
+    <select id="city" name="city" onchange="selectCounty()">
+		<option value="" selected="true">请选择</option>
+	</select>
+    <select id="county" name="county">
+		<option value="" selected="true">请选择</option>
+	</select>
+</body>
+</html>

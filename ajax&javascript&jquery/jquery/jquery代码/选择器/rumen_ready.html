@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	//注册匿名函数来执行ready时间
+	/*$(document).ready(function(){
+		alert("加载完毕！！");
+	});
+	$(document).ready(function(){
+		alert("加载完毕2！！");
+	});
+	*/
+	window.onload=function(){
+		alert("加载完毕");
+	}
+	window.onload=function(){
+		alert("加载完毕2");
+	}
+	
+	$(function (){
+		alert("加载完毕3");
+	});
+	//和onload的区别，onload代码写两次，只会执行一次，默认执行最后一次，但是ready能够执行多次
+</script>
+</head>
+
+<body>
+</body>
+</html>

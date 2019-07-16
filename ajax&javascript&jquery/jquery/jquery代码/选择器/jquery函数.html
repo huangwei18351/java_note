@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	/*var arr = [3,5,7];
+	var arr2 = $.map(arr, function(item){
+			return item*2;
+		});
+	alert(arr2);*/
+	var dict = {"tom":20, "jerry":30, "jjjj":40};
+	$.each(dict, function(key, value){
+		alert(key+"的年龄"+value);
+		});
+		
+	var arr = [2,3,4];
+	/*$.each(arr, function(key, value){
+		alert(key+"===="+value);
+		});*/
+	$.each(arr, function(item){
+		alert(item);
+		});
+</script>
+</head>
+
+<body>
+</body>
+</html>

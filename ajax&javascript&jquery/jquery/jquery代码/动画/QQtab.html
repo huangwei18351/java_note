@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+ul{
+	list-style-type:none;
+}
+.header{
+	background:red;
+	cursor:pointer;
+}
+.body{
+	border:1px solid blue;
+}
+</style>
+<script type="text/javascript" src="../../jquery-3.2.1.js"></script>
+<script type="text/javascript" >
+
+	//qq好友列表的开闭
+	$(function (){
+		$("#qq li:even").addClass("header").click(function(){
+			$(this).next("li.body").show("slow").siblings("li.body").hide("slow");
+		});
+		$("#qq li:odd").addClass("body");
+		$("#qq li:first").click();//模拟点击第一行的事件
+	});
+		
+</script>
+</head>
+
+<body>
+<ul id="qq">
+	<li>我的好友</li>
+    <li>张三<br />李四<br /></li>
+    <li>同学</li>
+    <li>Lade<br />羽泉<br /></li>
+    <li>亲人</li>
+    <li>张宇<br />苏打绿</li>
+</ul>
+</body>
+</html>
